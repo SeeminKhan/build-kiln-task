@@ -18,7 +18,7 @@ const TaskDetails = () => {
 
   return (
     <div className="flex justify-center items-center h-screen">
-      <Card className="w-96 bg-blue-50 shadow-md shadow-blue-100">
+      <Card className="w-96 bg-sky-50 shadow-md shadow-sky-100">
         <CardContent>
           <Typography variant="h5" component="div" className="mb-4">
             {task.title}

@@ -17,7 +17,7 @@ const TaskForm = ({ existingTask = null, onClose }) => {
 
   return (
     <Box 
-      className="p-6 border rounded-md bg-blue-50 shadow-md shadow-blue-100"
+      className="p-6 border rounded-md bg-sky-50 shadow-md shadow-sky-100"
       sx={{
         padding: "24px",
         borderRadius: "8px",

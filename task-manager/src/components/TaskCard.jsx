@@ -16,11 +16,11 @@ const TaskCard = ({ task, onDelete }) => {
 
   return (
     <>
-      <Card className="mb-4 shadow-md shadow-blue-100 border border-blue-500">
+      <Card className="mb-4 shadow-md shadow-sky-100 border border-sky-500">
         <CardContent>
           <Box className="flex justify-between items-center">
             <Typography variant="h6">
-              <Link to={`/tasks/${task.id}`} className="text-blue-800">
+              <Link to={`/tasks/${task.id}`} className="text-sky-800">
                 {task.title}
               </Link>
             </Typography>

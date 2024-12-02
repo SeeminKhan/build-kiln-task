@@ -3,8 +3,8 @@ import { Box, Typography } from "@mui/material";
 
 const TaskList = ({ tasks, title, onDelete }) => {
   return (
-    <Box className="p-4 bg-blue-50 shadow-md rounded-md shadow-blue-100">
-      <Typography variant="h6" className="mb-4 text-gray-700 font-bold">
+    <Box className="p-4 shadow-md rounded-md shadow-sky-100">
+      <Typography variant="h6" className="mb-4 text-gray-700 font-bold" color="primary">
         {title}
       </Typography>
       {tasks.length > 0 ? (
@@ -12,7 +12,7 @@ const TaskList = ({ tasks, title, onDelete }) => {
           <TaskCard key={task.id} task={task} onDelete={onDelete} />
         ))
       ) : (
-        <Typography className="text-blue-600">
+        <Typography className="text-black">
           No tasks available for this filter.
         </Typography>
       )}

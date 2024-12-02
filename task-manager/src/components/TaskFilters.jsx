@@ -5,7 +5,7 @@ const TaskFilters = ({ activeFilter, setFilter }) => {
 
   return (
     <Box className="flex flex-wrap gap-2 p-4 bg-gray-50 rounded-md shadow-md shadow-gray-100">
-      <Typography variant="h6" className="w-full mb-2 text-blue-700">
+      <Typography variant="h6" className="w-full mb-2 text-sky-600">
         Filter Tasks
       </Typography>
       {filters.map((filter) => (
@@ -14,7 +14,7 @@ const TaskFilters = ({ activeFilter, setFilter }) => {
           variant={activeFilter === filter ? "contained" : "outlined"}
           color="primary"
           className={`capitalize ${
-            activeFilter === filter ? "bg-blue-500 text-white" : ""
+            activeFilter === filter ? "bg-sky-500 text-white" : ""
           }`}
           onClick={() => setFilter(filter)}
         >
