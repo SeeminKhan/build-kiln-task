@@ -17,7 +17,7 @@ const TaskForm = ({ existingTask = null, onClose }) => {
 
   return (
     <Box 
-      className="p-6 border rounded-md bg-purple-50 shadow-md shadow-purple-100"
+      className="p-6 border rounded-md bg-blue-50 shadow-md shadow-blue-100"
       sx={{
         padding: "24px",
         borderRadius: "8px",
@@ -56,7 +56,7 @@ const TaskForm = ({ existingTask = null, onClose }) => {
         InputLabelProps={{ shrink: true }}
       />
       <Box className="flex justify-between" sx={{ display: "flex", justifyContent: "space-between", gap: "16px" }}>
-        <Button variant="contained" color="secondary" onClick={onClose} sx={{ padding: "12px 24px" }}>
+        <Button variant="contained" color="primary" onClick={onClose} sx={{ padding: "12px 24px" }}>
           Cancel
         </Button>
         <Button variant="contained" color="success" onClick={handleSubmit} sx={{ padding: "12px 24px" }}>

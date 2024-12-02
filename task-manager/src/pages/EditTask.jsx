@@ -32,7 +32,7 @@ const EditTask = () => {
 
   return (
     <Box className="flex flex-col items-center mt-10">
-      <Typography variant="h4" gutterBottom color="secondary">
+      <Typography variant="h4" gutterBottom color="primary">
         Edit Task
       </Typography>
       <form onSubmit={handleSubmit} className="w-96">

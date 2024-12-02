@@ -3,7 +3,7 @@ import { Box, Typography } from "@mui/material";
 
 const TaskList = ({ tasks, title, onDelete }) => {
   return (
-    <Box className="p-4 bg-purple-50 shadow-md rounded-md shadow-purple-100">
+    <Box className="p-4 bg-blue-50 shadow-md rounded-md shadow-blue-100">
       <Typography variant="h6" className="mb-4 text-gray-700 font-bold">
         {title}
       </Typography>

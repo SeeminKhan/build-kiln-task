@@ -18,7 +18,7 @@ const TaskDetails = () => {
 
   return (
     <div className="flex justify-center items-center h-screen">
-      <Card className="w-96 bg-purple-50 shadow-md shadow-purple-100">
+      <Card className="w-96 bg-blue-50 shadow-md shadow-blue-100">
         <CardContent>
           <Typography variant="h5" component="div" className="mb-4">
             {task.title}
@@ -26,7 +26,7 @@ const TaskDetails = () => {
           <Typography variant="body1" className="mb-4">
             {task.description}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" color="text.primary">
             Due Date: {task.dueDate}
           </Typography>
         </CardContent>
@@ -40,7 +40,7 @@ const TaskDetails = () => {
           </Button>
           <Button
             variant="contained"
-            color="secondary"
+            color="primary"
             onClick={() => navigate(`/tasks/${task.id}/edit`)} // Corrected the path
           >
             Edit
