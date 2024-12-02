@@ -68,7 +68,7 @@ const TaskDashboard = () => {
       p={isSmallScreen ? 2 : 4}
     >
       {/* Header */}
-      <Box mb={4}>
+      <Box mb={4} px={2}>
         <Typography
           variant={isSmallScreen ? "h5" : "h4"}
           gutterBottom
@@ -82,7 +82,7 @@ const TaskDashboard = () => {
       </Box>
 
       {/* Search Bar and Add New Task Button */}
-      <Grid container spacing={2} alignItems="center" mb={4}>
+      <Grid container spacing={2} alignItems="center" mb={4} px={2}>
         <Grid item xs={12} sm={8} md={9}>
           <TextField
             label="Search Tasks"
@@ -100,7 +100,7 @@ const TaskDashboard = () => {
             startIcon={<AddIcon />}
             fullWidth
             sx={{
-              background: "linear-gradient(to right, #6a11cb, #2575fc)",
+              background: "linear-gradient(to right, #04317a, #0588e6)",
               color: "#fff",
               borderRadius: "8px",
               padding: "10px 20px",
@@ -109,7 +109,7 @@ const TaskDashboard = () => {
               fontWeight: "bold",
               "&:hover": {
                 transform: "scale(1.05)",
-                background: "linear-gradient(to right, #5a0fb9, #2061e0)",
+                background: "linear-gradient(to right, #04317a, #0588e6)",
               },
             }}
             onClick={() => setShowForm(true)}
