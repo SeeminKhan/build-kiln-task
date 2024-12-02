@@ -46,10 +46,11 @@ The **Task Management Dashboard** is a feature-rich web application designed to 
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/task-management-dashboard.git
+   git clone https://github.com/SeeminKhan/build-kiln-task.git
    ```
 2. **Navigate to the project directory**:
    ```bash
+   cd build-kiln-task
    cd task-manager
    ```
 3. **Install dependencies**:
