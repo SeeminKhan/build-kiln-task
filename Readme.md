@@ -50,7 +50,7 @@ The **Task Management Dashboard** is a feature-rich web application designed to 
    ```
 2. **Navigate to the project directory**:
    ```bash
-   cd task-management-dashboard
+   cd task-manager
    ```
 3. **Install dependencies**:
    ```bash
