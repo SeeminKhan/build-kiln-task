@@ -16,18 +16,18 @@ const TaskCard = ({ task, onDelete }) => {
 
   return (
     <>
-      <Card className="mb-4 shadow-md">
+      <Card className="mb-4 shadow-md shadow-purple-100 border border-purple-500">
         <CardContent>
           <Box className="flex justify-between items-center">
             <Typography variant="h6">
-              <Link to={`/tasks/${task.id}`} className="text-blue-500">
+              <Link to={`/tasks/${task.id}`} className="text-fuchsia-800">
                 {task.title}
               </Link>
             </Typography>
             <Checkbox
               checked={task.completed}
               onChange={() => dispatch(toggleTaskCompletion(task.id))}
-              color="primary"
+              color="success"
             />
           </Box>
           <Typography variant="body2" color="textSecondary">
@@ -36,10 +36,10 @@ const TaskCard = ({ task, onDelete }) => {
           <Typography variant="caption" color="textSecondary">
             Due Date: {task.dueDate}
           </Typography>
-          <div className="mt-2 flex justify-between">
+          <div className="mt-2 flex justify-between ">
             <Button
               size="small"
-              variant="outlined"
+              variant="contained"
               color="error"
               onClick={() => setOpenDialog(true)}
             >
@@ -59,7 +59,7 @@ const TaskCard = ({ task, onDelete }) => {
           <Button onClick={() => setOpenDialog(false)} color="primary">
             Cancel
           </Button>
-          <Button onClick={handleDelete} color="secondary">
+          <Button onClick={handleDelete} color="error">
             Delete
           </Button>
         </DialogActions>

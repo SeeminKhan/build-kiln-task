@@ -9,11 +9,16 @@ const TaskDetails = () => {
     state.tasks.tasks.find((task) => task.id === parseInt(id))
   );
 
-  if (!task) return <div className="text-center text-red-500">Task not found!</div>;
+  if (!task)
+    return (
+      <div className="flex justify-center items-center h-screen bg-gray-100">
+        <div className="text-center text-red-500 text-xl">Task not found!</div>
+      </div>
+    );
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
-      <Card className="w-96 shadow-md">
+    <div className="flex justify-center items-center h-screen">
+      <Card className="w-96 bg-purple-50 shadow-md shadow-purple-100">
         <CardContent>
           <Typography variant="h5" component="div" className="mb-4">
             {task.title}
@@ -26,10 +31,18 @@ const TaskDetails = () => {
           </Typography>
         </CardContent>
         <div className="flex justify-between p-4">
-          <Button variant="contained" color="primary" onClick={() => navigate(-1)}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => navigate(-1)}
+          >
             Go Back
           </Button>
-          <Button variant="outlined" color="error" onClick={() => alert("Edit coming soon!")}>
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={() => navigate(`/tasks/${task.id}/edit`)} // Corrected the path
+          >
             Edit
           </Button>
         </div>

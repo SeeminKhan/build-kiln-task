@@ -1,24 +1,37 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Box, Fab, TextField } from "@mui/material";
+import {
+  Box,
+  Fab,
+  Grid,
+  TextField,
+  Avatar,
+  Badge,
+  Typography,
+  Card,
+  CardContent,
+  LinearProgress,
+  Button,
+} from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { DragDropContext } from "react-beautiful-dnd";
 import TaskForm from "../components/TaskForm";
 import TaskFilters from "../components/TaskFilters";
 import TaskList from "../components/TaskList";
-import { reorderTasks } from "../redux/taskSlice"; // Action for reordering tasks
-import { deleteTask } from "../redux/taskSlice"; // Action for deleting tasks
+import { reorderTasks, deleteTask } from "../redux/taskSlice"; // Redux actions
 
 const TaskDashboard = () => {
   const tasks = useSelector((state) => state.tasks.tasks);
   const dispatch = useDispatch();
   const [activeFilter, setFilter] = useState("All");
   const [showForm, setShowForm] = useState(false);
-  const [searchQuery, setSearchQuery] = useState(""); // state for search query
+  const [searchQuery, setSearchQuery] = useState("");
 
   // Filter tasks based on the search query and active filter
   const filteredTasks = tasks.filter((task) => {
-    const isTitleMatch = task.title.toLowerCase().includes(searchQuery.toLowerCase());
+    const isTitleMatch = task.title
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
     switch (activeFilter) {
       case "Completed":
         return task.completed && isTitleMatch;
@@ -40,65 +53,91 @@ const TaskDashboard = () => {
     const [removed] = reorderedTasks.splice(source.index, 1);
     reorderedTasks.splice(destination.index, 0, removed);
 
-    dispatch(reorderTasks(reorderedTasks)); // Dispatch the reordered tasks to redux
+    dispatch(reorderTasks(reorderedTasks));
   };
 
   const handleDelete = (taskId) => {
-    dispatch(deleteTask(taskId)); // Delete task via redux
+    dispatch(deleteTask(taskId));
   };
 
   return (
-    <Box className="relative bg-gradient-to-r from-lavender-700 to-lavender-500 min-h-screen p-8">
-      {/* Search Bar */}
-      <Box className="mb-6 w-full max-w-md mx-auto">
-        <TextField
-          label="Search Tasks"
-          variant="outlined"
-          fullWidth
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="mb-4"
-          InputProps={{
-            style: {
-              backgroundColor: "white",
-              borderRadius: "8px",
-              paddingLeft: "12px",
-              fontSize: "16px",
-            },
-          }}
-        />
-      </Box>
-
-      {/* Task Filters */}
-      <Box className="mb-6">
-        <TaskFilters activeFilter={activeFilter} setFilter={setFilter} />
-      </Box>
-
-      {/* Drag and Drop Area */}
-      <DragDropContext onDragEnd={handleDragEnd}>
-        <Box className="mt-8">
-          <TaskList tasks={filteredTasks} title={`${activeFilter} Tasks`} onDelete={handleDelete} />
-        </Box>
-      </DragDropContext>
-
-      {/* Floating Action Button */}
-      <Fab
-        color="primary"
-        aria-label="add"
-        className="fixed bottom-8 right-8 bg-gradient-to-r from-purple-500 to-pink-500 hover:scale-110 transform transition-transform"
-        onClick={() => setShowForm(true)}
-      >
-        <AddIcon />
-      </Fab>
-
-      {/* Add Task Form Modal */}
-      {showForm && (
-        <div className="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50">
-          <Box className="bg-white rounded-lg shadow-lg p-6 max-w-md w-full">
-            <TaskForm onClose={() => setShowForm(false)} />
+    <Box display="flex" minHeight="100vh" bgcolor="#f7f8fc">
+      {/* Main Content */}
+      <Box flex={1} p={4}>
+        {/* Header */}
+        <Box
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+          mb={4}
+        >
+          <Box>
+            <Typography variant="h4" gutterBottom color="primary">
+              Hello😊
+            </Typography>
+            <Typography variant="subtitle1" color="textSecondary">
+              Let's organize your daily tasks
+            </Typography>
           </Box>
-        </div>
-      )}
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="space-between"
+            mb={4}
+          >
+            <TextField
+              label="Search Tasks"
+              variant="outlined"
+              color="secondary"
+              size="small"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              sx={{ marginRight: 2 }}
+            />
+            <Button
+              variant="contained"
+              startIcon={<AddIcon />}
+              sx={{
+                background: "linear-gradient(to right, #6a11cb, #2575fc)",
+                color: "#fff",
+                borderRadius: "8px",
+                padding: "10px 20px",
+                boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+                textTransform: "none",
+                fontWeight: "bold",
+                "&:hover": {
+                  transform: "scale(1.05)",
+                  background: "linear-gradient(to right, #5a0fb9, #2061e0)",
+                },
+              }}
+              onClick={() => setShowForm(true)}
+            >
+              Add New Task
+            </Button>
+          </Box>
+        </Box>
+
+        {/* Task Filters */}
+        <TaskFilters activeFilter={activeFilter} setFilter={setFilter} />
+
+        {/* Drag and Drop Area */}
+        <DragDropContext onDragEnd={handleDragEnd}>
+          <TaskList
+            tasks={filteredTasks}
+            title={`${activeFilter} Tasks`}
+            onDelete={handleDelete}
+          />
+        </DragDropContext>
+
+        {/* Add Task Form Modal */}
+        {showForm && (
+          <Box className="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50">
+            <Box className="bg-white rounded-lg shadow-lg p-6 max-w-md w-full">
+              <TaskForm onClose={() => setShowForm(false)} />
+            </Box>
+          </Box>
+        )}
+      </Box>
     </Box>
   );
 };

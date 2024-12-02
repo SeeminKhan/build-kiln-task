@@ -31,8 +31,8 @@ const EditTask = () => {
   if (!task) return <Typography color="error">Task not found!</Typography>;
 
   return (
-    <Box className="flex flex-col items-center mt-10 ">
-      <Typography variant="h4" gutterBottom>
+    <Box className="flex flex-col items-center mt-10">
+      <Typography variant="h4" gutterBottom color="secondary">
         Edit Task
       </Typography>
       <form onSubmit={handleSubmit} className="w-96">
@@ -62,11 +62,11 @@ const EditTask = () => {
           margin="normal"
         />
         <Box className="flex justify-between mt-4">
-          <Button variant="contained" color="primary" type="submit">
-            Save Changes
-          </Button>
-          <Button variant="outlined" color="secondary" onClick={() => navigate(-1)}>
+          <Button variant="contained" color="error" onClick={() => navigate(-1)}>
             Cancel
+          </Button>
+          <Button variant="contained" color="success" type="submit" onClick={() => navigate(-1)}>
+            Save Changes
           </Button>
         </Box>
       </form>
